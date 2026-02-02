@@ -1,9 +1,13 @@
-#!/usr/bin/env bash
+ #!/usr/bin/env bash
 set -Eeuo pipefail
 
-echo "---------------------"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "Top 5 processes are :"
+REPORT_FILE="$SCRIPT_DIR/report.log"
+
+echo "---------------------"  >> "$REPORT_FILE"
+
+echo "Top 5 processes are :" >> 
 
 ps aux | sort -nrk 3 |head -5 || true
 
